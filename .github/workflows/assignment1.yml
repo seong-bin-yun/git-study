@@ -16,7 +16,7 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
       - run: mkdir -p path/to/artifact
-      - run: echo ${{ matrix.node-version }} > path/to/artifact/${{ matrix.python-version }}.txt
+      - run: python -c "import sys; print(sys.version)" > path/to/artifact/${{ matrix.python-version }}.txt
       - uses: actions/upload-artifact@v3
         with:
           name: my-artifact
